@@ -23,7 +23,7 @@ def simulate_population(initial_population, growth_rate, carrying_capacity, num_
 
         # Apply drought impact
         # BUG: This drought impact logic is flawed and can lead to overestimation.
-        drought_effect = 1 + (drought_intensity * 0.5) # This is the problematic line
+        drought_effect = 1 - (drought_intensity * 0.5) # Adjusted to reflect negative impact
         next_population *= drought_effect
 
         population.append(int(max(0, next_population)))
